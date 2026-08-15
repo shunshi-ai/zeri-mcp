@@ -1,0 +1,68 @@
+{
+  "name": "shunshi-zeri-core",
+  "version": "0.1.0",
+  "description": "择日 (Chinese date selection) engine — find auspicious days for weddings, moving, business opening, groundbreaking, travel and contracts. Offline, built on the same calendar core as the Shunshi.AI bazi engine.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "test": "tsx tests/select.test.ts && tsx tests/parity.test.ts",
+    "test:parity": "tsx tests/parity.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "zeri",
+    "择日",
+    "擇日",
+    "date-selection",
+    "auspicious-date",
+    "wedding-date",
+    "黄历",
+    "老黄历",
+    "almanac",
+    "chinese-almanac",
+    "吉日",
+    "良辰吉日",
+    "宜忌",
+    "日取り",
+    "六曜",
+    "택일",
+    "길일",
+    "shunshi",
+    "shunshi.ai"
+  ],
+  "author": "Shunshi.AI (https://shunshi.ai)",
+  "license": "MIT",
+  "homepage": "https://github.com/shunshi-ai/zeri-mcp/tree/main/packages/zeri-core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shunshi-ai/zeri-mcp.git",
+    "directory": "packages/zeri-core"
+  },
+  "bugs": {
+    "url": "https://github.com/shunshi-ai/zeri-mcp/issues"
+  },
+  "dependencies": {
+    "shunshi-bazi-core": "^0.2.0",
+    "tyme4ts": "^1.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

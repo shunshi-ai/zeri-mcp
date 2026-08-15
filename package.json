@@ -1,0 +1,23 @@
+{
+  "name": "zeri-mcp-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Workspace root for shunshi-zeri-core (Chinese date selection engine) and shunshi-zeri-mcp (MCP server wrapper).",
+  "workspaces": [
+    "packages/zeri-core",
+    "packages/zeri-mcp"
+  ],
+  "_comment_overrides": "Local development only: points the cross-repo dependency at the sibling bazi-reader-mcp checkout so both repos can be worked on together. Run `npm run build` there first — this links the built package, not the sources. NOTE the path carries one extra `../`: npm resolves a workspace-root override relative to a workspace package directory, then writes the symlink relative to node_modules. This file is private and never published; consumers install shunshi-bazi-core from npm.",
+  "overrides": {
+    "shunshi-bazi-core": "file:../../../bazi-reader-mcp/packages/bazi-core"
+  },
+  "scripts": {
+    "build": "npm run build -w shunshi-zeri-core && npm run build -w shunshi-zeri-mcp",
+    "test": "npm run test -w shunshi-zeri-core",
+    "dev:mcp": "npm run dev -w shunshi-zeri-mcp",
+    "clean": "rm -rf packages/*/dist packages/*/*.tsbuildinfo"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
